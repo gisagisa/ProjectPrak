@@ -1,4 +1,3 @@
-
 package projectprak.view;
 
 /**
@@ -7,7 +6,7 @@ package projectprak.view;
  */
 public class CheckIn extends CekKode{
     public CheckIn(){
-        super("CHECK IN KODE","check in berhasil");
-        
+        super("CHECK IN KODE","check in berhasil!"); 
     }
 }
+

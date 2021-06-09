@@ -3,9 +3,7 @@ package projectprak.view;
 
 import java.awt.Font;
 import java.awt.event.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import projectprak.controller.ControllerMenuUtama;
 
 /**
@@ -25,21 +23,22 @@ public class MenuUtama extends Wrapper implements ActionListener{
 
     public MenuUtama(){
         super.setLayout(null);
+        
         super.add(ljudul);
         super.add(bpesan);
         super.add(bcin);
         super.add(bcout); 
         super.add(bbatal); 
         
-        ljudul.setFont(new Font("serif",Font.BOLD,30));
-        bpesan.setFont(new Font("serif",Font.BOLD,20));
-        bbatal.setFont(new Font("serif",Font.BOLD,20));
-        bcin.setFont(new Font("serif",Font.BOLD,20));
-        bcout.setFont(new Font("serif",Font.BOLD,20));
+        ljudul.setFont(new Font("Baskerville Old Face",Font.BOLD,30));
+        bpesan.setFont(new Font("Century Gothic",Font.PLAIN,20));
+        bbatal.setFont(new Font("Century Gothic",Font.PLAIN,20));
+        bcin.setFont(new Font("Century Gothic",Font.PLAIN,20));
+        bcout.setFont(new Font("Century Gothic",Font.PLAIN,20));
         
-        ljudul.setBounds(313, 0, 400, 50);
-        bpesan.setBounds(40, 80, 350, 150);
-        bbatal.setBounds(490, 80, 350, 150);
+        ljudul.setBounds(313,10, 400, 50);
+        bpesan.setBounds(40, 90, 350, 150);
+        bbatal.setBounds(490, 90, 350, 150);
         bcin.setBounds(40, 280, 350, 150);
         bcout.setBounds(490, 280, 350, 150);
         
@@ -47,15 +46,23 @@ public class MenuUtama extends Wrapper implements ActionListener{
         bbatal.addActionListener(this);
         bcout.addActionListener(this);
         bcin.addActionListener(this);
-       
-
+        
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public void actionPerformed(ActionEvent e){
-        System.out.print(e);
         if (e.getSource() == bcin){
             controllerMenuUtama.viewCheckIn();
         }
-    
+        if (e.getSource() == bcout){
+            controllerMenuUtama.viewCheckOut();
+        }
+        if (e.getSource() == bpesan){
+            controllerMenuUtama.viewBooking();
+        }
+        if (e.getSource() == bbatal){
+            controllerMenuUtama.viewCancel();
+        }
     }
 }
