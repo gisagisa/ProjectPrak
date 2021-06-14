@@ -8,7 +8,7 @@ import projectprak.controller.ControllerMenuUtama;
  *
  * @author user
  */
-public class Booking extends Wrapper implements ActionListener{
+public class ViewBooking extends Wrapper implements ActionListener{
     
     ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
@@ -28,7 +28,7 @@ public class Booking extends Wrapper implements ActionListener{
     
     JButton bpesan = new JButton("PESAN");
     
-    public Booking(){
+    public ViewBooking(){
         super.setLayout(null);
         
         super.add(lhotel);
@@ -88,5 +88,27 @@ public class Booking extends Wrapper implements ActionListener{
             controllerMenuUtama.viewMenuUtama();
         }
     }
+
+    public JTextField getFnama() {
+        return fnama;
+    }
+
+    public JTextField getFnoHP() {
+        return fnoHP;
+    }
+
+    public JTextField getFhari() {
+        return fhari;
+    }
+
+    public JTextField getFnoKTP() {
+        return fnoKTP;
+    }
+
+    public JTextField getFkamar() {
+        return fkamar;
+    }
+    
+    
 }
 

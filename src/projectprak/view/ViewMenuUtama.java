@@ -10,7 +10,7 @@ import projectprak.controller.ControllerMenuUtama;
  *
  * @author user
  */
-public class MenuUtama extends Wrapper implements ActionListener{
+public class ViewMenuUtama extends Wrapper implements ActionListener{
     
     ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
     JLabel ljudul = new JLabel("HOTEL DEL LUNA");
@@ -21,7 +21,7 @@ public class MenuUtama extends Wrapper implements ActionListener{
     JButton bcout = new JButton("CHECK OUT");
     JButton bbatal = new JButton("BATAL");
 
-    public MenuUtama(){
+    public ViewMenuUtama(){
         super.setLayout(null);
         
         super.add(ljudul);

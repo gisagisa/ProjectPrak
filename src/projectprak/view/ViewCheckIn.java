@@ -4,8 +4,8 @@ package projectprak.view;
  *
  * @author user
  */
-public class CheckIn extends CekKode{
-    public CheckIn(){
+public class ViewCheckIn extends CekKode{
+    public ViewCheckIn(){
         super("CHECK IN KODE","check in berhasil!"); 
     }
 }

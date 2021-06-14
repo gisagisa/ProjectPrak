@@ -1,30 +1,26 @@
 
 package projectprak.controller;
 
-import projectprak.view.Booking;
-import projectprak.view.Cancel;
-import projectprak.view.CheckIn;
-import projectprak.view.CheckOut;
-import projectprak.view.MenuUtama;
+import projectprak.view.*;
 
 /**
  *
  * @author user
  */
 public class ControllerMenuUtama {
-    public CheckIn viewCheckIn(){
-        return new CheckIn();
+    public ViewCheckIn viewCheckIn(){
+        return new ViewCheckIn();
     }
-    public CheckOut viewCheckOut(){
-        return new CheckOut();
+    public ViewCheckOut viewCheckOut(){
+        return new ViewCheckOut();
     }
-    public Booking viewBooking(){
-        return new Booking();
+    public ViewBooking viewBooking(){
+        return new ViewBooking();
     }
-    public Cancel viewCancel(){
-        return new Cancel();
+    public ViewCancel viewCancel(){
+        return new ViewCancel();
     }
-    public MenuUtama viewMenuUtama(){
-        return new MenuUtama();
+    public ViewMenuUtama viewMenuUtama(){
+        return new ViewMenuUtama();
     }
 }
