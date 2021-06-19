@@ -1,6 +1,7 @@
 
 package projectprak.controller;
 
+import projectprak.model.*;
 import projectprak.view.*;
 
 /**
@@ -11,18 +12,17 @@ public class ControllerMenuUtama {
     public ViewAddNama viewAddNama(){
         return new ViewAddNama();
     }
-    public ViewKamar viewKamar(){
-        return new ViewKamar();
-    }
+
     public ViewCheckIn viewCheckIn(){
         return new ViewCheckIn();
     }
     public ViewCheckOut viewCheckOut(){
         return new ViewCheckOut();
     }
-    public ViewBooking viewBooking(){
-        
-        return new ViewBooking();
+    public ViewBooking viewBooking(String kamar){
+        ModelCustomer mk = new ModelCustomer();
+        Customer[] result = mk.getAll();
+        return new ViewBooking(result,kamar);
     }
     public ViewCancel viewCancel(){
         return new ViewCancel();

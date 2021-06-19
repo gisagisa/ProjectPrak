@@ -3,6 +3,7 @@ package projectprak.view;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
+import projectprak.controller.ControllerBooking;
 
 import projectprak.controller.ControllerMenuUtama;
 import projectprak.model.*;
@@ -13,8 +14,10 @@ import projectprak.model.*;
  */
 public class ViewBooking extends Wrapper implements ActionListener {
 
-    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    ControllerBooking controllerBooking = new ControllerBooking();
     Customer[] customers;
+    String kamar;
+    
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
     JLabel ljudul = new JLabel("PESAN KAMAR");
 
@@ -30,13 +33,18 @@ public class ViewBooking extends Wrapper implements ActionListener {
     JLabel lnoKTP = new JLabel("No KTP");
     final JTextField fnoKTP = new JTextField();
     JLabel lharga = new JLabel("Total Harga : 1.000.000.000");
+    
+    JLabel lkamar;
 
     JButton bpesan = new JButton("PESAN");
     JButton bkamar = new JButton("Pilih Kamar");
     JButton baddNama = new JButton("+");
 
-    public ViewBooking(Customer[] customers) {
+    public ViewBooking(Customer[] customers,String kamar) {
         this.customers = customers;
+        this.kamar =kamar;
+        
+        this.lkamar = new JLabel(kamar);
         
         super.setLayout(null);
         super.add(lhotel);
@@ -54,6 +62,7 @@ public class ViewBooking extends Wrapper implements ActionListener {
         super.add(lharga);
         super.add(cbnama);
         super.add(baddNama);
+        super.add(lkamar);
 
         this.setComboBox(this.customers, cbnama);
 
@@ -71,6 +80,7 @@ public class ViewBooking extends Wrapper implements ActionListener {
         fnoKTP.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bkamar.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bpesan.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        lkamar.setFont(new Font("Century Gothic", Font.BOLD, 18));
         lharga.setFont(new Font("Century Gothic", Font.BOLD, 18));
 
         lhotel.setBounds(313, 10, 400, 50);
@@ -86,6 +96,7 @@ public class ViewBooking extends Wrapper implements ActionListener {
         lhari.setBounds(500, 130, 300, 40);
         fhari.setBounds(500, 170, 300, 40);
         bkamar.setBounds(500, 260, 200, 40);
+        lkamar.setBounds(750, 260, 75, 40);
         lharga.setBounds(500, 320, 300, 40);
         bpesan.setBounds(700, 405, 100, 40);
 
@@ -98,10 +109,10 @@ public class ViewBooking extends Wrapper implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bpesan) {
-            controllerMenuUtama.viewMenuUtama();
+           controllerMenuUtama.viewMenuUtama();
         }
         if (e.getSource() == bkamar) {
-            controllerMenuUtama.viewKamar();
+            controllerBooking.viewKamar();
         }
         if (e.getSource() == baddNama) {
             controllerMenuUtama.viewAddNama();

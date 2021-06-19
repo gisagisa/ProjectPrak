@@ -11,7 +11,6 @@ import projectprak.controller.ControllerMenuUtama;
  * @author user
  */
 public class ViewMenuUtama extends Wrapper implements ActionListener{
-    
     ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
     JLabel ljudul = new JLabel("HOTEL DEL LUNA");
     
@@ -59,7 +58,7 @@ public class ViewMenuUtama extends Wrapper implements ActionListener{
             controllerMenuUtama.viewCheckOut();
         }
         if (e.getSource() == bpesan){
-            controllerMenuUtama.viewBooking();
+            controllerMenuUtama.viewBooking("");
         }
         if (e.getSource() == bbatal){
             controllerMenuUtama.viewCancel();
