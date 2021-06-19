@@ -24,14 +24,10 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
     JPanel panel = new JPanel();
     JComboBox<String> cbnama = new JComboBox<>();
 
-    JLabel lnama = new JLabel("Nama");
+   JLabel lnama = new JLabel("Nama");
     final JTextField fnama = new JTextField();
-    JLabel lnoHP = new JLabel("No Telpon");
-    final JTextField fnoHP = new JTextField();
     JLabel lhari = new JLabel("Hari");
     final JTextField fhari = new JTextField();
-    JLabel lnoKTP = new JLabel("No KTP");
-    final JTextField fnoKTP = new JTextField();
     JLabel lharga = new JLabel("Total Harga : 1.000.000.000");
     
     JLabel lkamar;
@@ -51,18 +47,15 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         super.add(ljudul);
         super.add(lnama);
         super.add(fnama);
-        super.add(lnoHP);
-        super.add(fnoHP);
         super.add(lhari);
         super.add(fhari);
-        super.add(lnoKTP);
-        super.add(fnoKTP);
         super.add(bkamar);
         super.add(bpesan);
         super.add(lharga);
         super.add(cbnama);
         super.add(baddNama);
         super.add(lkamar);
+
 
         this.setComboBox(this.customers, cbnama);
 
@@ -72,12 +65,8 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         cbnama.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         baddNama.setFont(new Font("Century Gothic", Font.BOLD, 18));
         //fnama.setFont(new Font("Century Gothic",Font.PLAIN,18));
-        lnoHP.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-        fnoHP.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         lhari.setFont(new Font("Century Gothic", Font.PLAIN, 20));
         fhari.setFont(new Font("Century Gothic", Font.PLAIN, 18));
-        lnoKTP.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-        fnoKTP.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bkamar.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bpesan.setFont(new Font("Century Gothic", Font.BOLD, 18));
         lkamar.setFont(new Font("Century Gothic", Font.BOLD, 18));
@@ -89,16 +78,12 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         //fnama.setBounds(80, 170, 300, 40);
         baddNama.setBounds(330, 170, 50, 40);
         cbnama.setBounds(80, 170, 240, 40);
-        lnoKTP.setBounds(80, 220, 300, 40);
-        fnoKTP.setBounds(80, 260, 300, 40);
-        lnoHP.setBounds(80, 310, 300, 40);
-        fnoHP.setBounds(80, 350, 300, 40);
-        lhari.setBounds(500, 130, 300, 40);
-        fhari.setBounds(500, 170, 300, 40);
-        bkamar.setBounds(500, 260, 200, 40);
-        lkamar.setBounds(750, 260, 75, 40);
-        lharga.setBounds(500, 320, 300, 40);
-        bpesan.setBounds(700, 405, 100, 40);
+        lhari.setBounds(80, 240, 300, 40);
+        fhari.setBounds(80, 280, 300, 40);
+        bkamar.setBounds(500, 170, 200, 40);
+        lkamar.setBounds(750, 230, 75, 40);
+        lharga.setBounds(500, 280, 300, 40);
+        bpesan.setBounds(650, 375, 100, 40);
 
         bpesan.addActionListener(this);
         bkamar.addActionListener(this);
@@ -128,17 +113,10 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         return fnama;
     }
 
-    public JTextField getFnoHP() {
-        return fnoHP;
-    }
-
     public JTextField getFhari() {
         return fhari;
     }
 
-    public JTextField getFnoKTP() {
-        return fnoKTP;
-    }
 
     public void setComboBox(Customer[] customers,JComboBox<String> cb) {
         for (Customer customer : customers) {
