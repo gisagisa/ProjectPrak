@@ -41,12 +41,13 @@ public class ModelKamar {
     return data;
     }
     
-    public Kamar getOne(Integer id){
+    public Kamar getOne(String ids){
          try{
-            String query = "Select * from `kamar` where `id` ="+id.toString(); //proses pengambilan data
+            String query = "Select * from `kamar` where `nomor` ='"+ids+"'"; //proses pengambilan data
             connector.statement = connector.koneksi.createStatement();
             ResultSet resultSet = connector.statement.executeQuery(query); //result isinya tabel belum berupa string
             while(resultSet.next()){ //konversi tabel ke string
+                int id = resultSet.getInt("id");
                 int status = resultSet.getInt("status");
                 int kapasitas = resultSet.getInt("kapasitas");
                 int harga = resultSet.getInt("harga");

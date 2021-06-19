@@ -28,11 +28,12 @@ public class ModelBooking {
                 int id = resultSet.getInt("id");
                 int id_orang = resultSet.getInt("id_orang");
                 int id_kamar = resultSet.getInt("id_kamar");
-                int jumlah_kamar = resultSet.getInt("jumlah_kamar");
+                int lama_tinggal = resultSet.getInt("lama_tinggal");
                 int total_harga = resultSet.getInt("total_harga");
                 String tanggal = resultSet.getString("tanggal");
-                
-                data[jmlData] = new Booking(id_orang,id_kamar,id,tanggal,jumlah_kamar,total_harga);
+                int status = resultSet.getInt("status");
+                String kode = resultSet.getString("kode");
+                data[jmlData] = new Booking(id_orang,id_kamar,id,tanggal,lama_tinggal,total_harga,status,kode);
                 jmlData++;
             }
             connector.statement.close();
@@ -51,10 +52,12 @@ public class ModelBooking {
             while(resultSet.next()){ //konversi tabel ke string
                 int id_orang = resultSet.getInt("id_orang");
                 int id_kamar = resultSet.getInt("id_kamar");
-                int jumlah_kamar = resultSet.getInt("jumlah_kamar");
+                int lama_tinggal = resultSet.getInt("lama_tinggal");
                 int total_harga = resultSet.getInt("total_harga");
                 String tanggal = resultSet.getString("tanggal");
-                data[0] = new Booking(id_orang,id_kamar,id,tanggal,jumlah_kamar,total_harga);
+                int status = resultSet.getInt("status");
+                String kode = resultSet.getString("kode");
+                data[0] = new Booking(id_orang,id_kamar,id,tanggal,lama_tinggal,total_harga,status,kode);
             }
             connector.statement.close();
         }catch(SQLException e){
@@ -72,10 +75,12 @@ public class ModelBooking {
                 System.out.println();
                 int id_orang = booking.getId_orang();
                 int id_kamar = booking.getId_kamar();
-                int jumlah_kamar = booking.getJumlah_kamar();
+                int lama_tinggal = booking.getLama_tinggal();
                 int total_harga = booking.getTotal_harga();
+                int status = 0;
                 String tanggal = formatter.format(date);
-            String query = "INSERT INTO `booking`(`id_orang`, `id_kamar`,`tanggal`,`total_harga`,`jumlah_kamar`) VALUES ("+id_orang+","+id_kamar+",'"+tanggal+"',"+total_harga+","+jumlah_kamar+")"; 
+                String kode = "DL-"+id_orang+"-"+(int)(Math.random() * ((50 - 5) + 1)) + 5+"-"+lama_tinggal;
+            String query = "INSERT INTO `booking`(`id_orang`, `id_kamar`,`tanggal`,`total_harga`,`lama_tinggal`,`status`,`kode`) VALUES ("+id_orang+","+id_kamar+",'"+tanggal+"',"+total_harga+","+lama_tinggal+","+status+",'"+kode+"')"; 
             connector.statement = connector.koneksi.createStatement();
             connector.statement.executeUpdate(query); 
             message = "Queri Berhasil";

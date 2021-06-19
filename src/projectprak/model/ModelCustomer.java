@@ -40,12 +40,13 @@ public class ModelCustomer {
     return data;
     }
     
-    public Customer getOne(Integer id){
+    public Customer getOne(String ids){
          try{
-            String query = "Select * from `customer` where `id` ="+id.toString(); //proses pengambilan data
+            String query = "Select * from `customer` where `nama` ='"+ids+"'"; //proses pengambilan data
             connector.statement = connector.koneksi.createStatement();
             ResultSet resultSet = connector.statement.executeQuery(query); //result isinya tabel belum berupa string
             while(resultSet.next()){ //konversi tabel ke string
+                int id = resultSet.getInt("id");
                 int umur = resultSet.getInt("umur");
                 String no_ktp = resultSet.getString("no_ktp");
                 String no_telp = resultSet.getString("no_telp");

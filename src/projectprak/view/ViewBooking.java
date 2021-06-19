@@ -12,12 +12,12 @@ import projectprak.model.*;
  *
  * @author user
  */
-public class ViewBooking extends Wrapper implements ActionListener {
+public class ViewBooking extends Wrapper implements ActionListener, KeyListener {
 
     ControllerBooking controllerBooking = new ControllerBooking();
     Customer[] customers;
-    String kamar;
-    
+    Kamar kamar;
+    int total;
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
     JLabel ljudul = new JLabel("PESAN KAMAR");
 
@@ -40,11 +40,11 @@ public class ViewBooking extends Wrapper implements ActionListener {
     JButton bkamar = new JButton("Pilih Kamar");
     JButton baddNama = new JButton("+");
 
-    public ViewBooking(Customer[] customers,String kamar) {
+    public ViewBooking(Customer[] customers,Kamar kamar) {
         this.customers = customers;
-        this.kamar =kamar;
+        this.kamar = kamar;
         
-        this.lkamar = new JLabel(kamar);
+        this.lkamar = new JLabel(kamar.getNomor());
         
         super.setLayout(null);
         super.add(lhotel);
@@ -103,19 +103,24 @@ public class ViewBooking extends Wrapper implements ActionListener {
         bpesan.addActionListener(this);
         bkamar.addActionListener(this);
         baddNama.addActionListener(this);
-
+        
+        fhari.addKeyListener(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bpesan) {
-           controllerMenuUtama.viewMenuUtama();
+            String nama = this.cbnama.getSelectedItem().toString();
+            int hari = Integer.parseInt(this.fhari.getText());
+            int total = Integer.parseInt(this.lharga.getText());
+            int id_kamar = kamar.getId();     
+           controllerBooking.storeBooking(nama,id_kamar,hari,total,this);
         }
         if (e.getSource() == bkamar) {
             controllerBooking.viewKamar();
         }
         if (e.getSource() == baddNama) {
-            controllerMenuUtama.viewAddNama();
+//            controllerMenuUtama.viewAddNama();
         }
     }
 
@@ -144,7 +149,17 @@ public class ViewBooking extends Wrapper implements ActionListener {
         }
     }
 
-//    public JTextField getFkamar() {
-//        //return fkamar;
-//    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyPressed(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int hari = Integer.parseInt(fhari.getText());
+        this.total = hari*this.kamar.getHarga();
+        this.lharga.setText(String.valueOf(this.total));
+    }
 }

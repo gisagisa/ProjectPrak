@@ -5,9 +5,9 @@
  */
 package projectprak.controller;
 
-import projectprak.model.Booking;
-import projectprak.model.Kamar;
-import projectprak.model.ModelKamar;
+
+import projectprak.model.*;
+import projectprak.view.ViewBooking;
 import projectprak.view.ViewKamar;
 
 /**
@@ -22,7 +22,14 @@ public class ControllerBooking {
         return new ViewKamar(result);
     }
 
-    public void storeBooking(Booking book) {
-
+    public void storeBooking(String nama, int id_kamar, int hari, int total_harga, ViewBooking view) {
+        ModelCustomer mc = new ModelCustomer();
+        Customer cust = mc.getOne(nama);
+        Booking book = new Booking(cust.getId(),id_kamar,0,"",hari,total_harga,0,"");
+        ModelBooking mb = new ModelBooking();
+        String msg = mb.create(book);
+        
+        
+        
     }
 }

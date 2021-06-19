@@ -14,16 +14,20 @@ public class Booking {
     private int id_kamar;
     private int id;
     private String tanggal;
-    private int jumlah_kamar;
+    private String kode;
+    private int lama_tinggal;
     private int total_harga;
+    private int status;
 
-    public Booking(int id_orang, int id_kamar, int id, String tanggal, int jumlah_kamar, int total_harga) {
+    public Booking(int id_orang, int id_kamar, int id, String tanggal, int lama_tinggal, int total_harga,int status, String kode) {
         this.id_orang = id_orang;
         this.id_kamar = id_kamar;
         this.id = id;
         this.tanggal = tanggal;
-        this.jumlah_kamar = jumlah_kamar;
+        this.lama_tinggal = lama_tinggal;
         this.total_harga = total_harga;
+        this.status = status;
+        this.kode = kode;
     }
 
     public int getId_orang() {
@@ -58,12 +62,12 @@ public class Booking {
         this.tanggal = tanggal;
     }
 
-    public int getJumlah_kamar() {
-        return jumlah_kamar;
+    public int getLama_tinggal() {
+        return lama_tinggal;
     }
 
-    public void setJumlah_kamar(int jumlah_kamar) {
-        this.jumlah_kamar = jumlah_kamar;
+    public void setLama_tinggal(int lama_tinggal) {
+        this.lama_tinggal = lama_tinggal;
     }
 
     public int getTotal_harga() {

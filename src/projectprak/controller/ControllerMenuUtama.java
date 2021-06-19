@@ -19,10 +19,13 @@ public class ControllerMenuUtama {
     public ViewCheckOut viewCheckOut(){
         return new ViewCheckOut();
     }
-    public ViewBooking viewBooking(String kamar){
-        ModelCustomer mk = new ModelCustomer();
-        Customer[] result = mk.getAll();
-        return new ViewBooking(result,kamar);
+    public ViewBooking viewBooking(String no){
+        ModelKamar mk = new ModelKamar();
+        Kamar kamar = mk.getOne(no);
+        ModelCustomer mc = new ModelCustomer();
+        Customer[] customers = mc.getAll();
+
+        return new ViewBooking(customers,kamar);
     }
     public ViewCancel viewCancel(){
         return new ViewCancel();

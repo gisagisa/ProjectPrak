@@ -1,44 +1,27 @@
 package projectprak.view;
 
 import java.sql.Date;
+import projectprak.model.Customer;
 
 /**
  *
  * @author user
  */
 public class ViewListCustomer extends TabelList{
-    public ViewListCustomer(){
-        
+    Customer[] customers;
+    
+    public ViewListCustomer(Customer[] customers){
         super("List Pelanggan", new Object[]{"ID", "Nama", "Umur", "No KTP","No Telpon"}); 
-
-        model.addRow(new Object[]{"Akira", "Hiroshima",
-            Date.valueOf("1995-10-16"), 2600000});
-        model.addRow(new Object[]{"Hikaru", "Tokyo", 
-            Date.valueOf("1990-09-23"), 2500000});
-        model.addRow(new Object[]{"Natsuki", "Akihabara", 
-            Date.valueOf("1987-12-05"), 3750000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
+        this.customers = customers;
+        
+        for (Customer customer : customers) {//type value : values
+            try{
+            model.addRow(new Object[]{customer.getId(), customer.getNama(),
+            customer.getUmur(),customer.getNo_ktp(),customer.getNo_telp()});
+            }catch(Exception e){
+                
+               }   
+        }
     }
 }
 
