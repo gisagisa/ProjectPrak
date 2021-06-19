@@ -8,6 +8,7 @@ package projectprak.controller;
 import projectprak.model.Booking;
 import projectprak.model.Kamar;
 import projectprak.model.ModelKamar;
+import projectprak.view.ViewAddNama;
 import projectprak.view.ViewKamar;
 
 /**
@@ -24,5 +25,9 @@ public class ControllerBooking {
 
     public void storeBooking(Booking book) {
 
+    }
+
+    public ViewAddNama viewAddNama() {
+        return new ViewAddNama();
     }
 }

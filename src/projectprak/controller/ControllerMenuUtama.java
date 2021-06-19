@@ -9,9 +9,7 @@ import projectprak.view.*;
  * @author user
  */
 public class ControllerMenuUtama {
-    public ViewAddNama viewAddNama(){
-        return new ViewAddNama();
-    }
+
 
     public ViewCheckIn viewCheckIn(){
         return new ViewCheckIn();
