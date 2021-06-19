@@ -55,6 +55,9 @@ public class ViewKamar extends Wrapper implements ActionListener{
             buttons[i].setFont(new Font("Century Gothic",Font.PLAIN,12));
             buttons[i].addActionListener(this);
             super.add(buttons[i]);
+                if (kamars[i].getStatus() == 0) {
+                    buttons[i].setEnabled(false);
+                }
             }catch(Exception e){
                 System.out.println(e);
             }

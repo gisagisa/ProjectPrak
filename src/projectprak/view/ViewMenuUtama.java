@@ -3,7 +3,7 @@ package projectprak.view;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
-import projectprak.controller.ControllerMenuUtama;
+import projectprak.controller.*;
 
 /**
  *
@@ -11,6 +11,7 @@ import projectprak.controller.ControllerMenuUtama;
  */
 public class ViewMenuUtama extends Wrapper implements ActionListener{
     ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    ControllerCustomer controllerListCustomer = new ControllerCustomer();
     JLabel ljudul = new JLabel("HOTEL DEL LUNA");
     
     //button
@@ -67,13 +68,13 @@ public class ViewMenuUtama extends Wrapper implements ActionListener{
             controllerMenuUtama.viewCheckOut();
         }
         if (e.getSource() == bpesan){
-            controllerMenuUtama.viewBooking("");
+            controllerMenuUtama.viewBooking("F3");
         }
         if (e.getSource() == bbatal){
             controllerMenuUtama.viewCancel();
         }
         if (e.getSource() == blistCustomer){
-//            controllerMenuUtama.viewListCustomer();
+            controllerListCustomer.viewCustomer();
         }
         if (e.getSource() == blistTransaksi){
 //            controllerMenuUtama.viewListTransaksi();

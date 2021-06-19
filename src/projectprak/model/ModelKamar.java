@@ -82,6 +82,19 @@ public class ModelKamar {
         }
     return message;
     }
-    
+    public String update_status(int id, int status) {
+        String message = "Bad Request";
+        try {
+            String query = "UPDATE kamar SET status = " + status + " WHERE id = '" + id + "'";
+            connector.statement = connector.koneksi.createStatement();
+            connector.statement.executeUpdate(query);
+            message = "Queri Berhasil";
+            connector.statement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("SQL Error");
+        }
+        return message;
+    }
     
 }

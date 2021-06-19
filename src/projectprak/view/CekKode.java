@@ -57,12 +57,14 @@ public class CekKode extends Wrapper implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
+
+    public JTextField getFkode() {
+        return fkode;
+    }
     
     
         public void actionPerformed(ActionEvent e){
-        if (e.getSource() == buttonOk){
-            controllerMenuUtama.viewMenuUtama();
-        }
+
     
     }
 
