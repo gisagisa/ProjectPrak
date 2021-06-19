@@ -60,7 +60,7 @@ public class ViewAddNama extends Wrapper implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == badd){
-            controllerMenuUtama.viewBooking();
+            controllerMenuUtama.viewBooking("");
         }
     }
 }
