@@ -10,14 +10,14 @@ import projectprak.view.*;
 public class Main {
 
     public static void main(String[] args) {
-       new ViewListTransaksi();
-       
-//        Connector connector = new Connector();
-//        ModelCustomer mk = new ModelCustomer();
-//        Customer result = new Customer("Janson", "3322190034", "082123232323", 34, 0);
+//       
+        Connector connector = new Connector();
+        ModelCustomer mk = new ModelCustomer();
+        Customer[] result = mk.getAll();
+        new ViewBooking(result);
 //        String message = mk.create(result);
 ////        Booking result =  mk.getOne(1);
-//        System.out.print(message);
+        System.out.print(result[0].getNo_ktp());
 //        
     }
     

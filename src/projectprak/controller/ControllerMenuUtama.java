@@ -21,6 +21,7 @@ public class ControllerMenuUtama {
         return new ViewCheckOut();
     }
     public ViewBooking viewBooking(){
+        
         return new ViewBooking();
     }
     public ViewCancel viewCancel(){
