@@ -10,7 +10,7 @@ import java.sql.*;
  * @author user
  */
 public class Connector {
-     String DBurl = "jdbc:mysql://localhost/projectPBO?serverTimezone=UTC";
+    String DBurl = "jdbc:mysql://localhost/projectPBO?serverTimezone=UTC";
     String DBusername = "root";
     String DBpassword = "";
     public Connection koneksi;

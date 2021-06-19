@@ -8,6 +8,12 @@ import projectprak.view.*;
  * @author user
  */
 public class ControllerMenuUtama {
+    public ViewAddNama viewAddNama(){
+        return new ViewAddNama();
+    }
+    public ViewKamar viewKamar(){
+        return new ViewKamar();
+    }
     public ViewCheckIn viewCheckIn(){
         return new ViewCheckIn();
     }
