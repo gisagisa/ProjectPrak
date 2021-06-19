@@ -10,7 +10,12 @@ import projectprak.view.*;
  */
 public class ControllerMenuUtama {
 
-
+    public ViewListCustomer viewListCustomer(){
+        return new ViewListCustomer();
+    }
+    public ViewListTransaksi viewListTransaksi(){
+        return new ViewListTransaksi();
+    }
     public ViewCheckIn viewCheckIn(){
         return new ViewCheckIn();
     }
