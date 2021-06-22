@@ -16,14 +16,19 @@ import projectprak.view.*;
  * @author user
  */
 public class ControllerCheckout {
+
+    public ViewCheckOut viewCheckOut() {
+        return new ViewCheckOut();
+    }
+
     public void checkOut(String kode, ViewCheckOut view) {
         ModelKamar mk = new ModelKamar();
         ModelBooking mb = new ModelBooking();
         Booking book = mb.getOne(kode);
         String msg = mk.update_status(book.getId_kamar(), 1);
-        msg = mb.update_status(kode,2);
-        
+        msg = mb.update_status(kode, 2);
+
         JOptionPane.showMessageDialog(view, msg);
-        
+
     }
 }

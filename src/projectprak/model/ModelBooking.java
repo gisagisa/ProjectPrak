@@ -74,7 +74,6 @@ public class ModelBooking {
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
-            System.out.println();
             int id_orang = booking.getId_orang();
             int id_kamar = booking.getId_kamar();
             int lama_tinggal = booking.getLama_tinggal();

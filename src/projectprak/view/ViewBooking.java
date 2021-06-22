@@ -3,9 +3,9 @@ package projectprak.view;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
+import projectprak.controller.ControllerAddNama;
 import projectprak.controller.ControllerBooking;
-
-import projectprak.controller.ControllerMenuUtama;
+import projectprak.controller.ControllerViewKamar;
 import projectprak.model.*;
 
 /**
@@ -14,6 +14,8 @@ import projectprak.model.*;
  */
 public class ViewBooking extends Wrapper implements ActionListener, KeyListener {
 
+    ControllerViewKamar controllerViewKamar = new ControllerViewKamar();
+    ControllerAddNama controllerAddNama = new ControllerAddNama();
     ControllerBooking controllerBooking = new ControllerBooking();
     Customer[] customers;
     Kamar kamar;
@@ -26,10 +28,11 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
 
    JLabel lnama = new JLabel("Nama");
     final JTextField fnama = new JTextField();
-    JLabel lhari = new JLabel("Hari");
+    JLabel lhari = new JLabel("Jumlah Hari");
     final JTextField fhari = new JTextField();
-    JLabel lharga = new JLabel("Total Harga : 1.000.000.000");
-    
+    JLabel ljudulharga = new JLabel("Total Harga :");
+    JLabel lharga = new JLabel();
+    JLabel ljudulkamar = new JLabel("Kamar :");
     JLabel lkamar;
 
     JButton bpesan = new JButton("PESAN");
@@ -51,10 +54,12 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         super.add(fhari);
         super.add(bkamar);
         super.add(bpesan);
-        super.add(lharga);
         super.add(cbnama);
         super.add(baddNama);
+        super.add(ljudulkamar);
         super.add(lkamar);
+        super.add(lharga);
+        super.add(ljudulharga);
 
 
         this.setComboBox(this.customers, cbnama);
@@ -69,21 +74,25 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         fhari.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bkamar.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bpesan.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        lkamar.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        lharga.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        lkamar.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        ljudulkamar.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        lharga.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        ljudulharga.setFont(new Font("Century Gothic", Font.PLAIN, 20));
 
         lhotel.setBounds(313, 10, 400, 50);
         ljudul.setBounds(80, 80, 250, 30);
-        lnama.setBounds(80, 130, 300, 40);
+        lnama.setBounds(80, 120, 300, 40);
         //fnama.setBounds(80, 170, 300, 40);
         baddNama.setBounds(330, 170, 50, 40);
         cbnama.setBounds(80, 170, 240, 40);
-        lhari.setBounds(80, 240, 300, 40);
-        fhari.setBounds(80, 280, 300, 40);
+        lhari.setBounds(80, 250, 300, 40);
+        fhari.setBounds(80, 290, 300, 40);
         bkamar.setBounds(500, 170, 200, 40);
-        lkamar.setBounds(750, 230, 75, 40);
-        lharga.setBounds(500, 280, 300, 40);
-        bpesan.setBounds(650, 375, 100, 40);
+        ljudulkamar.setBounds(715, 170, 75, 40);
+        lkamar.setBounds(800, 170, 75, 40);
+        ljudulharga.setBounds(500, 290, 150, 40);
+        lharga.setBounds(650, 290, 300, 40);
+        bpesan.setBounds(390, 390, 100, 40);
 
         bpesan.addActionListener(this);
         bkamar.addActionListener(this);
@@ -99,13 +108,14 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
             int hari = Integer.parseInt(this.fhari.getText());
             int total = Integer.parseInt(this.lharga.getText());
             int id_kamar = kamar.getId();     
+            System.out.println(nama);
            controllerBooking.storeBooking(nama,id_kamar,hari,total,this);
         }
         if (e.getSource() == bkamar) {
-            controllerBooking.viewKamar();
+            controllerViewKamar.viewKamar();
         }
         if (e.getSource() == baddNama) {
-//            controllerMenuUtama.viewAddNama();
+            controllerAddNama.viewAddNama();
         }
     }
 

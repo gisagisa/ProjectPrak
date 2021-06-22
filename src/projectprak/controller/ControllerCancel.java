@@ -16,6 +16,9 @@ import projectprak.view.*;
  * @author user
  */
 public class ControllerCancel {
+    public ViewCancel viewCancel(){
+        return new ViewCancel();
+    }
     public void delete(String kode, ViewCancel view) {
         ModelKamar mk = new ModelKamar();
         ModelBooking mb = new ModelBooking();

@@ -79,8 +79,8 @@ public class TabelList extends Wrapper{
         setVisible(true);
     }
     
-    public static void main(String[] args) {
-        ViewListTransaksi obj = new ViewListTransaksi();
-    }
+//    public static void main(String[] args) {
+//        ViewListTransaksi obj = new ViewListTransaksi();
+//    }
 }
 

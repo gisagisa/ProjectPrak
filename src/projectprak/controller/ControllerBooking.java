@@ -16,11 +16,14 @@ import projectprak.view.ViewKamar;
  * @author user
  */
 public class ControllerBooking {
+    
+    public ViewBooking viewBooking(String no){
+        ModelKamar mk = new ModelKamar(); //kurang event handling kalo kosong nanti annas benerin
+        Kamar kamar = mk.getOne(no);
+        ModelCustomer mc = new ModelCustomer();
+        Customer[] customers = mc.getAll();
 
-    public ViewKamar viewKamar() {
-        ModelKamar mk = new ModelKamar();
-        Kamar[] result = mk.getAll();
-        return new ViewKamar(result);
+        return new ViewBooking(customers,kamar);
     }
 
     public void storeBooking(String nama, int id_kamar, int hari, int total_harga, ViewBooking view) {

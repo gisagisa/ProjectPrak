@@ -3,6 +3,7 @@ package projectprak.view;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
+import projectprak.controller.ControllerBooking;
 import projectprak.controller.ControllerMenuUtama;
 import projectprak.model.Kamar;
 /**
@@ -11,7 +12,7 @@ import projectprak.model.Kamar;
  */
 public class ViewKamar extends Wrapper implements ActionListener{
     
-    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    ControllerBooking controllerBooking = new ControllerBooking();
     Kamar[] kamars;
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
     JLabel ljudul = new JLabel("KAMAR");
@@ -42,7 +43,7 @@ public class ViewKamar extends Wrapper implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent e){
-        controllerMenuUtama.viewBooking(e.getActionCommand());
+        controllerBooking.viewBooking(e.getActionCommand());
     }
     
     public void setJButton(Kamar[] kamars, JButton[] buttons){

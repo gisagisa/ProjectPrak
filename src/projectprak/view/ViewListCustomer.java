@@ -1,7 +1,8 @@
 package projectprak.view;
 
-import java.sql.Date;
+import javax.swing.JOptionPane;
 import projectprak.model.Customer;
+
 
 /**
  *
@@ -19,8 +20,8 @@ public class ViewListCustomer extends TabelList{
             model.addRow(new Object[]{customer.getId(), customer.getNama(),
             customer.getUmur(),customer.getNo_ktp(),customer.getNo_telp()});
             }catch(Exception e){
-                
-               }   
+               
+            }   
         }
     }
 }

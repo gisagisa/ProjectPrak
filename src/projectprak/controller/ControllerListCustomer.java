@@ -13,7 +13,7 @@ import projectprak.view.*;
  *
  * @author user
  */
-public class ControllerCustomer {
+public class ControllerListCustomer {
     
     public ViewListCustomer viewCustomer(){
        ModelCustomer mc = new ModelCustomer();

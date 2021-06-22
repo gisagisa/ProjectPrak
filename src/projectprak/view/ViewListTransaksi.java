@@ -1,47 +1,41 @@
 package projectprak.view;
 
 import java.sql.Date;
+import projectprak.model.Booking;
 
 /**
  *
  * @author user
  */
-public class ViewListTransaksi extends TabelList{
-    public ViewListTransaksi(){
-        
-        super("List Transaksi", new Object[]{"ID", "Customer", "Kamar", "Tanggal","Total Harga","No Kamar"}); 
+public class ViewListTransaksi extends TabelList {
 
-        model.addRow(new Object[]{"Akira", "Hiroshima",
-            Date.valueOf("1995-10-16"), 2600000});
-        model.addRow(new Object[]{"Hikaru", "Tokyo", 
-            Date.valueOf("1990-09-23"), 2500000});
-        model.addRow(new Object[]{"Natsuki", "Akihabara", 
-            Date.valueOf("1987-12-05"), 3750000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Akira", "Hiroshima",
-            Date.valueOf("1995-10-16"), 2600000});
-        model.addRow(new Object[]{"Hikaru", "Tokyo", 
-            Date.valueOf("1990-09-23"), 2500000});
-        model.addRow(new Object[]{"Natsuki", "Akihabara", 
-            Date.valueOf("1987-12-05"), 3750000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Akira", "Hiroshima",
-            Date.valueOf("1995-10-16"), 2600000});
-        model.addRow(new Object[]{"Hikaru", "Tokyo", 
-            Date.valueOf("1990-09-23"), 2500000});
-        model.addRow(new Object[]{"Natsuki", "Akihabara", 
-            Date.valueOf("1987-12-05"), 3750000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        model.addRow(new Object[]{"Asoka", "Kyoto", 
-            Date.valueOf("1989-01-15"), 5730000});
-        
+    Booking[] booking;
+    private String status;
+
+    public ViewListTransaksi(Booking[] booking) {
+
+        super("List Transaksi", new Object[]{"ID", "Customer", "Kamar", "Tanggal", "Total Harga","Lama Tinggal","Status", "Kode"});
+
+        this.booking = booking;
+
+        for (Booking book : booking) {//type value : values
+            try {
+                int kodeStatus = book.getStatus();
+                if (kodeStatus == 0) {
+                    status = "booking";
+                }
+                if (kodeStatus == 1) {
+                    status = "check in";
+                }
+                if (kodeStatus == 2) {
+                    status = "check out";
+                }
+                model.addRow(new Object[]{book.getId(), book.getId_orang(),
+                    book.getId_kamar(), book.getTanggal(), book.getTotal_harga(), book.getLama_tinggal(), status, book.getKode()});
+            } catch (Exception e) {
+
+            }
+        }
+
     }
 }
-

@@ -9,18 +9,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import projectprak.controller.ControllerMenuUtama;
+import projectprak.controller.ControllerAddNama;
+import projectprak.controller.ControllerBooking;
+import projectprak.model.Customer;
 
 /**
  *
  * @author user
  */
-public class ViewAddNama extends Wrapper implements ActionListener{
-    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+public class ViewAddNama extends Wrapper implements ActionListener {
+
+    ControllerBooking controllerBooking = new ControllerBooking();
+    ControllerAddNama controllerAddNama = new ControllerAddNama();
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
     JLabel ljudul = new JLabel("TAMBAH NAMA");
-    
-    
+
     JLabel lnamaBaru = new JLabel("Nama Baru");
     final JTextField fnamaBaru = new JTextField();
     JLabel lumur = new JLabel("Umur");
@@ -29,15 +32,15 @@ public class ViewAddNama extends Wrapper implements ActionListener{
     final JTextField fnoKTP = new JTextField();
     JLabel lnoTelp = new JLabel("No Telpon");
     final JTextField fnoTelp = new JTextField();
-    
+
     JButton badd = new JButton("TAMBAH");
-    
-    public ViewAddNama(){
+
+    public ViewAddNama() {
         super.setLayout(null);
-        
+
         super.add(lhotel);
         super.add(ljudul);
-        
+
         super.add(lnamaBaru);
         super.add(fnamaBaru);
         super.add(lumur);
@@ -46,22 +49,21 @@ public class ViewAddNama extends Wrapper implements ActionListener{
         super.add(fnoKTP);
         super.add(lnoTelp);
         super.add(fnoTelp);
-        
-        super.add(badd); 
-        
-        lhotel.setFont(new Font("Baskerville Old Face",Font.PLAIN,30));
-        ljudul.setFont(new Font("Century Gothic",Font.BOLD,20));
-        lnamaBaru.setFont(new Font("Century Gothic",Font.PLAIN,20));
-        fnamaBaru.setFont(new Font("Century Gothic",Font.PLAIN,18));
-        lumur.setFont(new Font("Century Gothic",Font.PLAIN,20));
-        fumur.setFont(new Font("Century Gothic",Font.PLAIN,18));
-        lnoKTP.setFont(new Font("Century Gothic",Font.PLAIN,20));
-        fnoKTP.setFont(new Font("Century Gothic",Font.PLAIN,18));
-        lnoTelp.setFont(new Font("Century Gothic",Font.PLAIN,20));
-        fnoTelp.setFont(new Font("Century Gothic",Font.PLAIN,18));
 
-        
-        lhotel.setBounds(313,10, 400, 50);
+        super.add(badd);
+
+        lhotel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 30));
+        ljudul.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        lnamaBaru.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        fnamaBaru.setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        lumur.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        fumur.setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        lnoKTP.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        fnoKTP.setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        lnoTelp.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        fnoTelp.setFont(new Font("Century Gothic", Font.PLAIN, 18));
+
+        lhotel.setBounds(313, 10, 400, 50);
         ljudul.setBounds(130, 90, 250, 30);
         lnamaBaru.setBounds(130, 150, 300, 40);
         fnamaBaru.setBounds(130, 190, 240, 40);
@@ -69,18 +71,22 @@ public class ViewAddNama extends Wrapper implements ActionListener{
         fumur.setBounds(130, 295, 240, 40);
         lnoKTP.setBounds(500, 150, 300, 40);
         fnoKTP.setBounds(500, 190, 240, 40);
-        lnoTelp.setBounds(500,255, 300, 40);
+        lnoTelp.setBounds(500, 255, 300, 40);
         fnoTelp.setBounds(500, 295, 240, 40);
         badd.setBounds(640, 380, 100, 40);
-        
+
         badd.addActionListener(this);
- 
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    public void actionPerformed(ActionEvent e){
-        if (e.getSource() == badd){
-            controllerMenuUtama.viewBooking("");
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == badd) {
+            String nama = this.fnamaBaru.getText();
+            String noKTP = this.fnoKTP.getText();
+            String noTelp = this.fnoTelp.getText();
+            int umur = Integer.parseInt(this.fumur.getText());
+            controllerAddNama.AddNewCust(nama,noKTP,noTelp,umur,0,this);
         }
     }
 }
