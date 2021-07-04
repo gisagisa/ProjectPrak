@@ -30,7 +30,6 @@ public class CekKode extends Wrapper implements ActionListener {
         this.msgBerhasil = msgBerhasil;
 
         ljudul.setText(this.judul);
-        lmsg.setText(this.msgBerhasil);
 
         super.setLayout(null);
         super.add(fkode);

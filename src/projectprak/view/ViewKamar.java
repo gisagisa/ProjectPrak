@@ -33,7 +33,7 @@ public class ViewKamar extends Wrapper implements ActionListener {
         super.add(llobby);
 
         super.add(bback);
-        bback.setBounds(80, 350, 100, 50);
+        bback.setBounds(750, 70, 100, 30);
         bback.addActionListener(this);
 
         lhotel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 30));
@@ -42,7 +42,7 @@ public class ViewKamar extends Wrapper implements ActionListener {
 
         lhotel.setBounds(313, 10, 400, 50);
         ljudul.setBounds(80, 70, 250, 30);
-        llobby.setBounds(405, 170, 250, 30);
+        llobby.setBounds(405, 350, 250, 30);
 
         this.setJButton(kamars, buttonKamar);
 
@@ -52,6 +52,7 @@ public class ViewKamar extends Wrapper implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bback) {
             controllerMenuUtama.viewMenuUtama(this);
+            return;
         }
         controllerBooking.viewBooking(e.getActionCommand(), this);
     }

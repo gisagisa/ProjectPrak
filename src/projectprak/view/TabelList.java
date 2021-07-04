@@ -39,7 +39,7 @@ public class TabelList extends Wrapper implements ActionListener {
         super.add(ljudul);
         super.add(lhotel);
         super.add(bback);
-        bback.setBounds(80, 350, 100, 50);
+        bback.setBounds(80, 400, 100, 35);
         bback.addActionListener(this);
         
         
