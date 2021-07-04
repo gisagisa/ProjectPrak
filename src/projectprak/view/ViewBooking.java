@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import projectprak.controller.ControllerAddNama;
 import projectprak.controller.ControllerBooking;
+import projectprak.controller.ControllerMenuUtama;
 import projectprak.controller.ControllerViewKamar;
 import projectprak.model.*;
 
@@ -17,6 +18,8 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
     ControllerViewKamar controllerViewKamar = new ControllerViewKamar();
     ControllerAddNama controllerAddNama = new ControllerAddNama();
     ControllerBooking controllerBooking = new ControllerBooking();
+    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    
     Customer[] customers;
     Kamar kamar;
     int total;
@@ -26,7 +29,7 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
     JPanel panel = new JPanel();
     JComboBox<String> cbnama = new JComboBox<>();
 
-   JLabel lnama = new JLabel("Nama");
+    JLabel lnama = new JLabel("Nama");
     final JTextField fnama = new JTextField();
     JLabel lhari = new JLabel("Jumlah Hari");
     final JTextField fhari = new JTextField();
@@ -38,13 +41,14 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
     JButton bpesan = new JButton("PESAN");
     JButton bkamar = new JButton("Pilih Kamar");
     JButton baddNama = new JButton("+");
+    JButton bback = new JButton("KEMBALI");
 
-    public ViewBooking(Customer[] customers,Kamar kamar) {
+    public ViewBooking(Customer[] customers, Kamar kamar) {
         this.customers = customers;
         this.kamar = kamar;
-        
+
         this.lkamar = new JLabel(kamar.getNomor());
-        
+
         super.setLayout(null);
         super.add(lhotel);
         super.add(ljudul);
@@ -60,8 +64,11 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         super.add(lkamar);
         super.add(lharga);
         super.add(ljudulharga);
-
-
+        
+        super.add(bback);
+        bback.setBounds(80, 350, 100, 50);
+        bback.addActionListener(this);
+        
         this.setComboBox(this.customers, cbnama);
 
         lhotel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 30));
@@ -97,7 +104,7 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         bpesan.addActionListener(this);
         bkamar.addActionListener(this);
         baddNama.addActionListener(this);
-        
+
         fhari.addKeyListener(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -107,15 +114,18 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
             String nama = this.cbnama.getSelectedItem().toString();
             int hari = Integer.parseInt(this.fhari.getText());
             int total = Integer.parseInt(this.lharga.getText());
-            int id_kamar = kamar.getId();     
+            int id_kamar = kamar.getId();
             System.out.println(nama);
-           controllerBooking.storeBooking(nama,id_kamar,hari,total,this);
+            controllerBooking.storeBooking(nama, id_kamar, hari, total, this);
         }
         if (e.getSource() == bkamar) {
             controllerViewKamar.viewKamar();
         }
         if (e.getSource() == baddNama) {
             controllerAddNama.viewAddNama();
+        }
+        if (e.getSource() == bback) {
+            controllerMenuUtama.viewMenuUtama(this);
         }
     }
 
@@ -127,27 +137,27 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         return fhari;
     }
 
-
-    public void setComboBox(Customer[] customers,JComboBox<String> cb) {
+    public void setComboBox(Customer[] customers, JComboBox<String> cb) {
         for (Customer customer : customers) {
-            try{
-            cb.addItem(customer.getNama());
-            }catch(Exception e){
-               }   
+            try {
+                cb.addItem(customer.getNama());
+            } catch (Exception e) {
+            }
         }
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+    }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int hari = Integer.parseInt(fhari.getText());
-        this.total = hari*this.kamar.getHarga();
+        this.total = hari * this.kamar.getHarga();
         this.lharga.setText(String.valueOf(this.total));
     }
 }

@@ -17,7 +17,8 @@ import projectprak.view.*;
  */
 public class ControllerCheckout {
 
-    public ViewCheckOut viewCheckOut() {
+    public ViewCheckOut viewCheckOut(ViewMenuUtama menu) {
+        menu.dispose();
         return new ViewCheckOut();
     }
 

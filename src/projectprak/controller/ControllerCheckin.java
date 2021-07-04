@@ -15,7 +15,8 @@ import projectprak.view.*;
  */
 public class ControllerCheckin {
 
-    public ViewCheckIn viewCheckIn() {
+    public ViewCheckIn viewCheckIn(ViewMenuUtama menu) {
+        menu.dispose();
         return new ViewCheckIn();
     }
 

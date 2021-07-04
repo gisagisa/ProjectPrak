@@ -2,6 +2,7 @@ package projectprak.view;
 
 import java.awt.event.ActionEvent;
 import projectprak.controller.ControllerCancel;
+import projectprak.controller.ControllerMenuUtama;
 
 /**
  *
@@ -9,6 +10,8 @@ import projectprak.controller.ControllerCancel;
  */
 public class ViewCancel extends CekKode{
     ControllerCancel controllerCancel = new ControllerCancel();
+    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    
     public ViewCancel(){
         super("CANCEL KODE","cancel berhasil!"); 
     }
@@ -17,6 +20,9 @@ public class ViewCancel extends CekKode{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == super.buttonOk) {
             this.controllerCancel.delete(this.getFkode().getText(),this);
+        }
+        if (e.getSource() == bback) {
+            controllerMenuUtama.viewMenuUtama(this);
         }
     }
 }

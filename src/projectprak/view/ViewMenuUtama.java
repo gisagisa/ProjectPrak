@@ -66,22 +66,22 @@ public class ViewMenuUtama extends Wrapper implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bcin) {
-            controllerCheckin.viewCheckIn();
+            controllerCheckin.viewCheckIn(this);
         }
         if (e.getSource() == bcout) {
-            controllerCheckout.viewCheckOut();
+            controllerCheckout.viewCheckOut(this);
         }
         if (e.getSource() == bpesan) {
-            controllerBooking.viewBooking("F3");
+            controllerBooking.viewBooking("F3",this);
         }
         if (e.getSource() == bbatal) {
-            controllerCancel.viewCancel();
+            controllerCancel.viewCancel(this);
         }
         if (e.getSource() == blistCustomer) {
-            controllerListCustomer.viewCustomer();
+            controllerListCustomer.viewCustomer(this);
         }
         if (e.getSource() == blistTransaksi) {
-            controllerListTransaksi.viewListTransaksi();
+            controllerListTransaksi.viewListTransaksi(this);
         }
     }
 }

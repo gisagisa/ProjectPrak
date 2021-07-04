@@ -2,6 +2,7 @@ package projectprak.view;
 
 import java.awt.event.ActionEvent;
 import projectprak.controller.ControllerCheckin;
+import projectprak.controller.ControllerMenuUtama;
 
 /**
  *
@@ -9,6 +10,8 @@ import projectprak.controller.ControllerCheckin;
  */
 public class ViewCheckIn extends CekKode {
     ControllerCheckin controllerCheckin = new ControllerCheckin();
+    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    
     public ViewCheckIn() {
         super("CHECK IN KODE", "check in berhasil!");
     }
@@ -18,6 +21,9 @@ public class ViewCheckIn extends CekKode {
         if (e.getSource() == super.buttonOk) {
             
             this.controllerCheckin.checkIn(this.getFkode().getText(),this);
+        }
+        if (e.getSource() == bback) {
+            controllerMenuUtama.viewMenuUtama(this);
         }
     }
 }

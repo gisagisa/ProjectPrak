@@ -15,7 +15,8 @@ import projectprak.view.*;
  */
 public class ControllerListCustomer {
     
-    public ViewListCustomer viewCustomer(){
+    public ViewListCustomer viewCustomer(ViewMenuUtama menu){
+        menu.dispose();
        ModelCustomer mc = new ModelCustomer();
        Customer[] customers = mc.getAll();
 

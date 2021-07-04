@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import projectprak.controller.ControllerAddNama;
 import projectprak.controller.ControllerBooking;
+import projectprak.controller.ControllerMenuUtama;
 import projectprak.model.Customer;
 
 /**
@@ -21,6 +22,8 @@ public class ViewAddNama extends Wrapper implements ActionListener {
 
     ControllerBooking controllerBooking = new ControllerBooking();
     ControllerAddNama controllerAddNama = new ControllerAddNama();
+    ControllerMenuUtama controllerMenuUtama = new ControllerMenuUtama();
+    
     JLabel lhotel = new JLabel("HOTEL DEL LUNA");
     JLabel ljudul = new JLabel("TAMBAH NAMA");
 
@@ -34,6 +37,7 @@ public class ViewAddNama extends Wrapper implements ActionListener {
     final JTextField fnoTelp = new JTextField();
 
     JButton badd = new JButton("TAMBAH");
+    JButton bback = new JButton("KEMBALI");
 
     public ViewAddNama() {
         super.setLayout(null);
@@ -86,7 +90,10 @@ public class ViewAddNama extends Wrapper implements ActionListener {
             String noKTP = this.fnoKTP.getText();
             String noTelp = this.fnoTelp.getText();
             int umur = Integer.parseInt(this.fumur.getText());
-            controllerAddNama.AddNewCust(nama,noKTP,noTelp,umur,0,this);
+            controllerAddNama.AddNewCust(nama, noKTP, noTelp, umur, 0, this);
+        }
+        if (e.getSource() == bback) {
+            controllerMenuUtama.viewMenuUtama(this);
         }
     }
 }

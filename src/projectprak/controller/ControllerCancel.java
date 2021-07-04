@@ -16,7 +16,8 @@ import projectprak.view.*;
  * @author user
  */
 public class ControllerCancel {
-    public ViewCancel viewCancel(){
+    public ViewCancel viewCancel(ViewMenuUtama menu){
+        menu.dispose();
         return new ViewCancel();
     }
     public void delete(String kode, ViewCancel view) {

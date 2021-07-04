@@ -8,6 +8,7 @@ package projectprak.controller;
 import projectprak.model.Booking;
 import projectprak.model.ModelBooking;
 import projectprak.view.ViewListTransaksi;
+import projectprak.view.ViewMenuUtama;
 
 /**
  *
@@ -15,7 +16,8 @@ import projectprak.view.ViewListTransaksi;
  */
 public class ControllerListTransaksi {
 
-    public ViewListTransaksi viewListTransaksi() {
+    public ViewListTransaksi viewListTransaksi(ViewMenuUtama menu) {
+        menu.dispose();
         ModelBooking mb = new ModelBooking();
         Booking[] booking = mb.getAll();
 
