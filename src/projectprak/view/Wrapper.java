@@ -5,7 +5,6 @@ package projectprak.view;
  * @author user
  */
 
-import java.awt.event.*;
 import javax.swing.*;
 
 

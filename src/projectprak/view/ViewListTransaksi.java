@@ -1,6 +1,5 @@
 package projectprak.view;
 
-import java.sql.Date;
 import projectprak.model.Booking;
 
 /**

@@ -4,6 +4,7 @@ package projectprak.view;
  *
  * @author user
  */
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
@@ -44,13 +45,17 @@ public class CekKode extends Wrapper implements ActionListener {
         fkode.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         lmsg.setFont(new Font("Century Gothic", Font.PLAIN, 22));
         buttonOk.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        bback.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        
+        bback.setBackground(Color.DARK_GRAY);
+        bback.setForeground(Color.white);
 
         ljudul.setBounds(80, 120, 250, 30);
         fkode.setBounds(80, 180, 250, 40);
         lmsg.setBounds(600, 95, 250, 80);
         buttonOk.setBounds(700, 350, 80, 40);
         lhotel.setBounds(313, 10, 400, 50);
-        bback.setBounds(80, 350, 100, 50);
+        bback.setBounds(80, 350, 120, 40);
 
         buttonOk.addActionListener(this);
         bback.addActionListener(this);

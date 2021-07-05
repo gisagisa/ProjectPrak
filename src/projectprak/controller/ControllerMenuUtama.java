@@ -1,6 +1,5 @@
 package projectprak.controller;
 
-import projectprak.model.*;
 import projectprak.view.*;
 
 /**

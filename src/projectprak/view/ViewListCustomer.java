@@ -1,6 +1,5 @@
 package projectprak.view;
 
-import javax.swing.JOptionPane;
 import projectprak.model.Customer;
 
 

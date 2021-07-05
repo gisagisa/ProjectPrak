@@ -39,7 +39,13 @@ public class TabelList extends Wrapper implements ActionListener {
         super.add(ljudul);
         super.add(lhotel);
         super.add(bback);
-        bback.setBounds(80, 400, 100, 35);
+        
+        bback.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        
+        bback.setBackground(Color.DARK_GRAY);
+        bback.setForeground(Color.white);
+        
+        bback.setBounds(90, 405, 100, 30);
         bback.addActionListener(this);
         
         

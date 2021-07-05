@@ -1,5 +1,6 @@
 package projectprak.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
@@ -38,10 +39,11 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
     JLabel ljudulkamar = new JLabel("Kamar :");
     JLabel lkamar;
 
+    JButton bback = new JButton("KEMBALI");
     JButton bpesan = new JButton("PESAN");
     JButton bkamar = new JButton("Pilih Kamar");
     JButton baddNama = new JButton("+");
-    JButton bback = new JButton("KEMBALI");
+    
 
     public ViewBooking(Customer[] customers, Kamar kamar) {
         this.customers = customers;
@@ -64,9 +66,9 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         super.add(lkamar);
         super.add(lharga);
         super.add(ljudulharga);
-        
         super.add(bback);
-        bback.setBounds(80, 350, 100, 50);
+        
+        
         bback.addActionListener(this);
         
         this.setComboBox(this.customers, cbnama);
@@ -76,11 +78,11 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         lnama.setFont(new Font("Century Gothic", Font.PLAIN, 20));
         cbnama.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         baddNama.setFont(new Font("Century Gothic", Font.BOLD, 18));
-        //fnama.setFont(new Font("Century Gothic",Font.PLAIN,18));
         lhari.setFont(new Font("Century Gothic", Font.PLAIN, 20));
         fhari.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bkamar.setFont(new Font("Century Gothic", Font.PLAIN, 18));
         bpesan.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        bback.setFont(new Font("Century Gothic", Font.BOLD, 18));
         lkamar.setFont(new Font("Century Gothic", Font.PLAIN, 20));
         ljudulkamar.setFont(new Font("Century Gothic", Font.PLAIN, 20));
         lharga.setFont(new Font("Century Gothic", Font.PLAIN, 20));
@@ -99,7 +101,13 @@ public class ViewBooking extends Wrapper implements ActionListener, KeyListener 
         lkamar.setBounds(800, 170, 75, 40);
         ljudulharga.setBounds(500, 290, 150, 40);
         lharga.setBounds(650, 290, 300, 40);
-        bpesan.setBounds(390, 390, 100, 40);
+        bpesan.setBounds(700, 390, 100, 40);
+        bback.setBounds(80, 390, 120, 40);
+        
+        bpesan.setBackground(Color.gray);
+        bpesan.setForeground(Color.white);
+        bback.setBackground(Color.DARK_GRAY);
+        bback.setForeground(Color.white);
 
         bpesan.addActionListener(this);
         bkamar.addActionListener(this);

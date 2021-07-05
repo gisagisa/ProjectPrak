@@ -1,5 +1,6 @@
 package projectprak.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
@@ -31,18 +32,22 @@ public class ViewKamar extends Wrapper implements ActionListener {
         super.add(lhotel);
         super.add(ljudul);
         super.add(llobby);
-
         super.add(bback);
-        bback.setBounds(750, 70, 100, 30);
-        bback.addActionListener(this);
-
+        
         lhotel.setFont(new Font("Baskerville Old Face", Font.PLAIN, 30));
         ljudul.setFont(new Font("Century Gothic", Font.BOLD, 20));
         llobby.setFont(new Font("Century Gothic", Font.PLAIN, 26));
+        bback.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        
+        bback.setBackground(Color.DARK_GRAY);
+        bback.setForeground(Color.white);
 
         lhotel.setBounds(313, 10, 400, 50);
         ljudul.setBounds(80, 70, 250, 30);
-        llobby.setBounds(405, 350, 250, 30);
+        llobby.setBounds(405, 200, 250, 30);
+        bback.setBounds(700, 70, 100, 30);
+        
+        bback.addActionListener(this);
 
         this.setJButton(kamars, buttonKamar);
 
