@@ -91,9 +91,6 @@ public class TabelList extends Wrapper implements ActionListener {
         setVisible(true);
     }
 
-//    public static void main(String[] args) {
-//        ViewListTransaksi obj = new ViewListTransaksi();
-//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

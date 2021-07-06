@@ -23,5 +23,4 @@ public class ControllerAddNama {
         JOptionPane.showMessageDialog(view, msg);
 
     }
-
 }

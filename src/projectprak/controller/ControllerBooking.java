@@ -15,7 +15,7 @@ public class ControllerBooking {
     
     public ViewBooking viewBooking(String no,ViewMenuUtama menu){
         menu.dispose();
-        ModelKamar mk = new ModelKamar(); //kurang event handling kalo kosong nanti annas benerin
+        ModelKamar mk = new ModelKamar(); 
         Kamar kamar = mk.getOne(no);
         ModelCustomer mc = new ModelCustomer();
         Customer[] customers = mc.getAll();
@@ -25,7 +25,7 @@ public class ControllerBooking {
     
      public ViewBooking viewBooking(String no,ViewKamar viewKamar){
         viewKamar.dispose();
-        ModelKamar mk = new ModelKamar(); //kurang event handling kalo kosong nanti annas benerin
+        ModelKamar mk = new ModelKamar(); 
         Kamar kamar = mk.getOne(no);
         ModelCustomer mc = new ModelCustomer();
         Customer[] customers = mc.getAll();
